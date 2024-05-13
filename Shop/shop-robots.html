@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberKrush - Robots</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../styles.css" rel="stylesheet">
+    <link rel="icon" href="../Images/icon2.ico" type="image/x-icon">
+</head>
+<body class="bg-dark text-light">
+<style>
+    body {
+        background-image: url('../Images/Background/darker.jpg');
+        background-size: contain;
+    }
+
+    /* Centrer les cases à cocher et les aligner horizontalement */
+    .form-check {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Aligner les produits horizontalement */
+    #product-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; /* Modifier si nécessaire */
+    }
+
+    /* Ajustement pour les cartes des produits */
+    .product-card {
+        flex: 0 0 calc(30% - 20px); /* Ajustez la largeur des cartes en fonction du nombre d'articles par ligne */
+        margin-bottom: 20px;
+    }
+</style>
+<script src="../script.js"></script>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="../hack.html">
+            <img src="../Images/cyberkrush.png" alt="Logo" width="200" height="auto" class="d-inline-block align-text-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="shop-main.html">Boutique</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../wanted.html">Prime</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../inscription.html">Inscription</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="../displayData.html">Liste Utilisateurs</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Second Navigation for Article Types -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="shop-armes.html">Armes</a>
+                <a class="nav-link" href="shop-equipements.html">Équipements</a>
+                <a class="nav-link active" aria-current="page" href="shop-robots.html">Robots</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+<header class="container py-4">
+    <h1 class="text-center neon-text">CyberKrush - Robots</h1>
+    <p class="text-center">Rencontrez nos robots de haute technologie pour diverses tâches.</p>
+</header>
+
+<!-- Filter Options -->
+<section class="container mb-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="tag1" checked>
+                <label class="form-check-label" for="tag1">
+                    Petit
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="tag2" checked>
+                <label class="form-check-label" for="tag2">
+                    Moyen
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="tag3" checked>
+                <label class="form-check-label" for="tag3">
+                    Gros
+                </label>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="container" id="product-container">
+    <!-- Product Cards will be dynamically added here -->
+</section>
+
+<!-- Footer -->
+<footer class="container py-4">
+    <p class="text-center">&copy; 2077 CyberKrush</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Sample data of products with tags and descriptions
+    const products = [
+        { name: "PixelBot", tags: ["tag1"], image: "Articles/Robots/small-robot1.jpg", description: "PixelBot est un petit robot aux formes cubiques, avec un revêtement externe de pixels lumineux qui lui permet de se camoufler dans les environnements urbains néon du cyberpunk. Il est spécialisé dans l'infiltration et la collecte de données discrète, capable de se fondre dans les réseaux informatiques complexes et de récupérer des informations sensibles." },
+        { name: "SparkleSpark", tags: ["tag1"], image: "Articles/Robots/small-robot2.jpg", description: "SparkleSpark est un petit androïde brillant doté de multiples appendices métalliques et de LED clignotantes qui évoquent des étincelles électriques. Son design flamboyant cache sa fonction principale : il est un expert en piratage et en sabotage des systèmes de sécurité électronique. Il est souvent utilisé par les hackers pour ouvrir des portes verrouillées et désactiver les dispositifs de surveillance." },
+        { name: "EchoEyes", tags: ["tag1"], image: "Articles/Robots/small-robot3.jpg", description: "EchoEyes est un mini drone en forme de sphère équipé de multiples lentilles optiques et de capteurs acoustiques. Il se déplace silencieusement dans les ruelles sombres des mégalopoles cyberpunk, collectant des données visuelles et sonores pour ses commanditaires. Sa petite taille et sa maniabilité en font un outil idéal pour la surveillance discrète et la reconnaissance de cibles dans des environnements hostiles." },
+        { name: "Cortex-7", tags: ["tag2"], image: "Articles/Robots/medium-robot1.jpg", description: "Cortex-7 est un androïde polyvalent de taille moyenne, conçu pour l'infiltration et le piratage dans les réseaux sécurisés. Son revêtement métallique noir mat et ses yeux lumineux rouge vif lui confèrent une présence imposante dans les ombres de la ville cyberpunk." },
+        { name: "NovaX-Prime", tags: ["tag2"], image: "Articles/Robots/medium-robot2.jpg", description: "NovaX-Prime est un robot de combat de taille moyenne équipé d'armes énergétiques avancées et d'une intelligence artificielle tactique. Son apparence futuriste, avec des lignes épurées et un revêtement chromé brillant, en fait un adversaire redoutable sur les champs de bataille urbains de la mégalopole." },
+        { name: "Synthia-9", tags: ["tag2"], image: "Articles/Robots/medium-robot3.jpg", description: "Synthia-9 est un androïde de service de taille moyenne doté d'une apparence humanoïde et d'une capacité avancée d'interaction sociale. Avec ses traits faciaux réalistes et sa voix douce, Synthia-9 est souvent utilisé comme assistant personnel dans les environnements urbains cyberpunk, offrant une gamme de services allant de la gestion de données à la gestion des foyers." },
+        { name: "Titan-9", tags: ["tag3"], image: "Articles/Robots/big-robot1.jpg", description: "Titan-9 est un colosse de métal aux lignes angulaires, mesurant plus de dix mètres de haut. Son corps est renforcé par des plaques d'acier trempé, et ses bras sont équipés de canons plasma, en faisant une force de destruction redoutable dans les zones urbaines." },
+        { name: "Cybernator-X", tags: ["tag3"], image: "Articles/Robots/big-robot2.jpg", description: "Cybernator-X est un titan cybernétique dont l'apparence rappelle celle d'une machine de guerre sortie tout droit d'un cauchemar. Son corps est recouvert d'une armure noire brillante, et ses yeux écarlates émettent une lueur menaçante. Armé de lasers surpuissants et de lames tranchantes, il est redouté sur les champs de bataille urbains." },
+        { name: "Colossus Prime", tags: ["tag3"], image: "Articles/Robots/big-robot3.jpg", description: "Colossus Prime est une masse métallique gigantesque, se déplaçant sur de puissantes jambes hydrauliques. Son corps est une fusion de technologie et de biomécanique, avec des parties organiques intégrées à sa structure. Doté d'une intelligence artificielle avancée, il agit comme un gardien implacable des intérêts de ses créateurs dans les mégalopoles cyberpunk, faisant respecter l'ordre avec une brutalité machinale." },
+        // Add more products with tags and descriptions as needed
+    ];
+
+    // Function to filter products based on selected tags
+    function filterProducts() {
+        const selectedTags = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(tag => tag.id);
+        const filteredProducts = products.filter(product => selectedTags.some(tag => product.tags.includes(tag)));
+        displayProducts(filteredProducts);
+    }
+
+    // Function to display filtered products
+    function displayProducts(products) {
+        const productContainer = document.getElementById('product-container');
+        productContainer.innerHTML = '';
+        products.forEach(product => {
+            const card = `
+            <div class="product-card">
+                <div class="card h-100">
+                    <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                    <div class="card-body">
+                        <h5 class="card-title neon-text">${product.name}</h5>
+                        <p class="card-text">${product.description}</p> <!-- Customize description here -->
+                        <a href="https://battlebots.com/" class="btn btn-primary">Acheter</a>
+                    </div>
+                </div>
+            </div>
+            `;
+            productContainer.insertAdjacentHTML('beforeend', card);
+        });
+    }
+
+    // Attach event listeners to checkboxes
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', filterProducts);
+    });
+
+    // Initial filter on page load
+    filterProducts();
+</script>
+
+</body>
+</html>
