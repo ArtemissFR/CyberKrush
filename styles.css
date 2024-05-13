@@ -1,0 +1,49 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
+
+.neon-text {
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
+}
+
+/* styles.css */
+body {
+    font-family: 'Rowdies', sans-serif; /* Utilisation de la police Rowdies */
+}
+
+.card {
+    transition: transform 0.3s ease-in-out;
+    background-color: #4e0061; /* Violet foncé */
+    border-color: #6a00a0; /* Violet clair */
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-title {
+    color: #c300ff; /* Violet néon */
+}
+
+.card-text {
+    color: #ff00ff; /* Rose néon */
+}
+
+.btn-primary {
+    background-color: #6a00a0; /* Violet clair */
+    border-color: #6a00a0; /* Violet clair */
+}
+
+.btn-primary:hover {
+    background-color: #ff00ff; /* Rose néon */
+    border-color: #ff00ff; /* Rose néon */
+}
+
+.btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 0.25rem rgba(106, 0, 160, 0.5); /* Violet clair avec opacité */
+}
+
+/* Ajoutez cette règle pour l'animation */
+.prix {
+    opacity: 0; /* Définissez l'opacité initiale à 0 pour masquer le prix */
+    transition: opacity 0.5s ease; /* Animation de transition sur l'opacité */
+}

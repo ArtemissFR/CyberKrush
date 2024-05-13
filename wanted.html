@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberKrush - Prime</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <link rel="icon" href="Images/icon2.ico" type="image/x-icon">
+</head>
+<body class="bg-dark text-light">
+<style>
+	body {
+	    background-image: url('Images/Background/cyberpunk.gif');
+ 	   background-size: cover;
+ 	   background-repeat: repeat;
+	}
+
+</style>
+    <!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   	 <div class="container-fluid">
+     	   <a class="navbar-brand" href="hack.html">
+     	       <img src="Images/cyberkrush.png" alt="Logo" width="200" height="auto" class="d-inline-block align-text-top">
+      	  </a>
+      	  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+       	     <span class="navbar-toggler-icon"></span>
+       	 </button>
+      	  <div class="collapse navbar-collapse" id="navbarNav">
+       	     <ul class="navbar-nav">
+        	        <li class="nav-item">
+        	            <a class="nav-link"  href="index.html">Accueil</a>
+         	       </li>
+         	       <li class="nav-item">
+          	          <a class="nav-link" href="Shop/shop-main.html">Boutique</a>
+          	      </li>
+          	      <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="wanted.html">Prime</a>
+           	     </li>
+          	      <li class="nav-item">
+                    <a class="nav-link" href="inscription.html">Inscription</a>
+           	     </li>
+           	     <li class="nav-item">
+          	          <a class="nav-link " href="displayData.html">Liste Utilisateurs</a>
+          	      </li>
+        	    </ul>
+     	   </div>
+  	 </div>
+	</nav>
+
+
+<div class="container text-center"> <!-- Ajout de la classe "text-center" pour centrer le contenu -->
+    <h1>Objectifs Prioritaires</h1>
+
+    <!-- Tableau des primes -->
+    <div class="row justify-content-center"> <!-- Ajout de la classe "justify-content-center" pour centrer le tableau -->
+        <div class="col-lg-8"> <!-- Utilisation de la grille Bootstrap pour limiter la largeur du tableau -->
+            <table class="table table-striped"> <!-- Ajout des classes Bootstrap pour styliser le tableau -->
+                <thead>
+                    <tr>
+                        <th><span class="neon-text">Cible</span></th> <!-- Ajout de la classe neon-text -->
+                        <th><span class="neon-text">Prime</span></th> <!-- Ajout de la classe neon-text -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-light">RazorByte</td> <!-- Ajout de la classe text-light -->
+                        <td class="text-light">10000€$</td> <!-- Ajout de la classe text-light -->
+                    </tr>
+                    <tr>
+                        <td class="text-light">SynthGhost</td> <!-- Ajout de la classe text-light -->
+                        <td class="text-light">15000€$</td> <!-- Ajout de la classe text-light -->
+                    </tr>
+                    <tr>
+                        <td class="text-light">CipherShade</td> <!-- Ajout de la classe text-light -->
+                        <td class="text-light">20000€$</td> <!-- Ajout de la classe text-light -->
+                    </tr>
+                    <!-- Ajoutez plus de cibles avec leurs primes selon vos besoins -->
+                    <tr>
+                        <td class="text-light">NanoBandit</td> <!-- Ajout de la classe text-light -->
+                        <td class="text-light">25000€$</td> <!-- Ajout de la classe text-light -->
+                    </tr>
+                    <tr>
+                        <td class="text-light">NeonShadow</td> <!-- Ajout de la classe text-light -->
+                        <td class="text-light">30000€$</td> <!-- Ajout de la classe text-light -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bouton pour s'assigner une cible -->
+    <button id="assign-target" class="btn btn-primary">S'assigner une cible</button> <!-- Ajout des classes Bootstrap pour styliser le bouton -->
+
+    <!-- Affichage des détails de la cible assignée -->
+    <div id="target-details"></div>
+</div>
+
+<!-- jQuery -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style>
+    .small-image {
+        max-width: 200px; /* Taille maximale de l'image */
+        max-height: auto;
+        border-radius: 10px; /* Coins arrondis */
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.7); /* Effet néon rose */
+    }
+
+    .prime-text {
+        color: #FF69B4; /* Couleur rose vive */
+        font-weight: bold; /* Gras pour mettre en évidence */
+    }
+</style>
+
+<script>
+    $(document).ready(function() {
+        // Objets contenant les détails des cibles
+        var targets = [
+            {
+                name: 'RazorByte',
+                prime: '10000€$',
+                photo: 'images-ai/Prime/razorbyte.jpg',
+                height: '175cm',
+                weapons: 'Pistolet'
+            },
+            {
+                name: 'SynthGhost',
+                prime: '15000€$',
+                photo: 'images-ai/Prime/synthghost.jpg',
+                height: '180cm',
+                weapons: 'Couteau'
+            },
+            {
+                name: 'CipherShade',
+                prime: '20000€$',
+                photo: 'images-ai/Prime/ciphershade.jpg',
+                height: '170cm',
+                weapons: 'Fusil de chasse'
+            },
+            {
+                name: 'NanoBandit',
+                prime: '25000€$',
+                photo: 'images-ai/Prime/nanobandit.jpg',
+                height: '185cm',
+                weapons: 'Revolver'
+            },
+            {
+                name: 'NeonShadow',
+                prime: '30000€$',
+                photo: 'images-ai/Prime/neonshadow.jpg',
+                height: '165cm',
+                weapons: 'Poignard'
+            }
+        ];
+
+        // Fonction pour s'assigner une cible aléatoirement
+        $('#assign-target').click(function() {
+            var randomIndex = Math.floor(Math.random() * targets.length);
+            var target = targets[randomIndex];
+            var detailsHtml = '<h2>Détails de la cible assignée :</h2>';
+            detailsHtml += '<p>Nom : ' + target.name + '</p>';
+            detailsHtml += '<p><span class="prime-text">Prime :</span> ' + target.prime + '</p>'; // Utilisation de la classe prime-text
+            detailsHtml += '<img src="' + target.photo + '" alt="Photo de la cible" class="small-image">'; // Ajout de la classe small-image
+            detailsHtml += '<p>Taille : ' + target.height + '</p>';
+            detailsHtml += '<p>Armes : ' + target.weapons + '</p>';
+            $('#target-details').html(detailsHtml);
+            $(this).prop('disabled', true); // Désactiver le bouton après avoir cliqué une fois
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberKrush - HackTool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <link rel="icon" href="Images/icon2.ico" type="image/x-icon">
+    <style>
+        /* Ajoutez vos styles personnalisés ici */
+        body {
+ 	   background-image: url('Images/Background/green.gif');
+ 	   background-size: cover;
+ 	   background-repeat: repeat;
+        }
+
+        .raindrop {
+            position: absolute;
+            width: 1px;
+        }
+
+        @keyframes falling {
+            0% {
+                transform: translateY(-50px); /* Début de la chute, hors de l'écran */
+            }
+            100% {
+                transform: translateY(100vh); /* Fin de la chute, en bas de la page */
+            }
+        }
+
+        .neon-text {
+            color: #0fff0f;
+            text-shadow: 0 0 5px #0fff0f, 0 0 10px #0fff0f, 0 0 20px #0fff0f, 0 0 40px #0fff0f, 0 0 80px #0fff0f, 0 0 90px #0fff0f, 0 0 100px #0fff0f, 0 0 150px #0fff0f;
+        }
+
+        .navbar {
+            background-color: #000000;
+        }
+
+        .navbar-brand img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        footer {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin-bottom: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body onload="getUserInfo()">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="Images/cyberkrush.png" alt="Logo CyberKrush">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Shop/shop-main.html">Boutique</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="wanted.html">Prime</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="inscription.html">Inscription</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="displayData.html">Liste Utilisateurs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center neon-text mb-4">Informations sur l'utilisateur</h1>
+        <ul class="text-center">
+		<li id="ip" style="color: white;">Adresse IP : </li>
+		<li id="latitude" style="color: white;">Latitude : </li>
+		<li id="longitude" style="color: white;">Longitude : </li>
+		<li id="user-agent" style="color: white;">User Agent : </li>
+		<li id="language" style="color: white;">Langue : </li>
+		<li id="platform" style="color: white;">Plateforme : </li>
+		<li id="cookies-enabled" style="color: white;">Cookies activés : </li>
+		<li id="screen-width" style="color: white;">Largeur de l'écran : </li>
+		<li id="screen-height" style="color: white;">Hauteur de l'écran : </li>
+		<li id="screen-resolution" style="color: white;">Résolution de l'écran : </li>
+		<li id="os" style="color: white;">Système d'exploitation : </li>
+		<li id="browser-language" style="color: white;">Langage du navigateur : </li>
+		<li id="browser-version" style="color: white;">Version du navigateur : </li>
+		<li id="java-enabled" style="color: white;">Java activé : </li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container">
+            <p class="text-center">&copy; 2077 CyberKrush</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Fonction pour obtenir les informations sur l'utilisateur
+        function getUserInfo() {
+            // Obtention de l'adresse IP de l'utilisateur
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ip').innerText = "Adresse IP : " + data.ip;
+                })
+                .catch(error => {
+                    console.error('Une erreur s\'est produite lors de l\'obtention de l\'adresse IP :', error);
+                });
+
+            // Obtention de la géolocalisation de l'utilisateur
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    document.getElementById('latitude').innerText = "Latitude : " + position.coords.latitude;
+                    document.getElementById('longitude').innerText = "Longitude : " + position.coords.longitude;
+                }, error => {
+                    console.error('Une erreur s\'est produite lors de l\'obtention de la géolocalisation :', error);
+                });
+            } else {
+                console.error('La géolocalisation n\'est pas prise en charge par ce navigateur.');
+            }
+
+            // Informations sur le navigateur de l'utilisateur
+            document.getElementById('user-agent').innerText = "User Agent : " + navigator.userAgent;
+            document.getElementById('language').innerText = "Langue : " + navigator.language;
+            document.getElementById('platform').innerText = "Plateforme : " + navigator.platform;
+            document.getElementById('cookies-enabled').innerText = "Cookies activés : " + navigator.cookieEnabled;
+
+            // Taille de l'écran de l'utilisateur
+            document.getElementById('screen-width').innerText = "Largeur de l'écran : " + screen.width + " pixels";
+            document.getElementById('screen-height').innerText = "Hauteur de l'écran : " + screen.height + " pixels";
+
+            // Résolution de l'écran de l'utilisateur
+            document.getElementById('screen-resolution').innerText = "Résolution de l'écran : " + screen.width * window.devicePixelRatio + " x " + screen.height * window.devicePixelRatio;
+
+            // Informations sur le système d'exploitation
+            document.getElementById('os').innerText = "Système d'exploitation : " + navigator.platform;
+
+            // Informations sur le langage du navigateur
+            document.getElementById('browser-language').innerText = "Langage du navigateur : " + navigator.language;
+
+            // Version du navigateur
+            document.getElementById('browser-version').innerText = "Version du navigateur : " + navigator.appVersion;
+
+            // Cookies activés
+            document.getElementById('cookies-enabled').innerText = "Cookies activés : " + navigator.cookieEnabled;
+
+            // Java activé
+            document.getElementById('java-enabled').innerText = "Java activé : " + navigator.javaEnabled();
+        }
+    </script>
+
+    <!-- JavaScript pour Bootstrap et jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
